@@ -1,10 +1,10 @@
 {
-  "name": "e-shop-tutorial",
+  "name": "e-shop",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "nodemon server.js",
