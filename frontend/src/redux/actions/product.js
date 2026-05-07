@@ -142,7 +142,7 @@ import { server } from "../../server";
 // CREATE PRODUCT
 // ===============================
 export const createProduct =
-  (
+  ({
     name,
     description,
     category,
@@ -152,7 +152,7 @@ export const createProduct =
     stock,
     shopId,
     images,
-  ) =>
+  }) =>
   async (dispatch) => {
     try {
       dispatch({ type: "productCreateRequest" });
