@@ -7,9 +7,9 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["https://multi-eshop-jgwi.vercel.app/", "http://localhost:3000/"],
     credentials: true,
-  })
+  }),
 );
 
 app.use(express.json());
