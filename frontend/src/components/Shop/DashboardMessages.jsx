@@ -9,11 +9,11 @@ import styles from "../../styles/styles";
 import { TfiGallery } from "react-icons/tfi";
 import socketIO from "socket.io-client";
 import { format } from "timeago.js";
-const ENDPOINT = "https://socket-ecommerce-tu68.onrender.com/";
+const ENDPOINT = "https://multi-eshop-pugm.vercel.app/";
 const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 const DashboardMessages = () => {
-  const { seller,isLoading } = useSelector((state) => state.seller);
+  const { seller, isLoading } = useSelector((state) => state.seller);
   const [conversations, setConversations] = useState([]);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [currentChat, setCurrentChat] = useState();
@@ -49,7 +49,7 @@ const DashboardMessages = () => {
           `${server}/conversation/get-all-conversation-seller/${seller?._id}`,
           {
             withCredentials: true,
-          }
+          },
         );
 
         setConversations(resonse.data.conversations);
@@ -82,7 +82,7 @@ const DashboardMessages = () => {
     const getMessage = async () => {
       try {
         const response = await axios.get(
-          `${server}/message/get-all-messages/${currentChat?._id}`
+          `${server}/message/get-all-messages/${currentChat?._id}`,
         );
         setMessages(response.data.messages);
       } catch (error) {
@@ -103,7 +103,7 @@ const DashboardMessages = () => {
     };
 
     const receiverId = currentChat.members.find(
-      (member) => member.id !== seller._id
+      (member) => member.id !== seller._id,
     );
 
     socketId.emit("sendMessage", {
@@ -164,7 +164,7 @@ const DashboardMessages = () => {
 
   const imageSendingHandler = async (e) => {
     const receiverId = currentChat.members.find(
-      (member) => member !== seller._id
+      (member) => member !== seller._id,
     );
 
     socketId.emit("sendMessage", {
@@ -197,7 +197,7 @@ const DashboardMessages = () => {
       {
         lastMessage: "Photo",
         lastMessageId: seller._id,
-      }
+      },
     );
   };
 
@@ -260,7 +260,7 @@ const MessageList = ({
   setUserData,
   online,
   setActiveStatus,
-  isLoading
+  isLoading,
 }) => {
   console.log(data);
   const [user, setUser] = useState([]);
