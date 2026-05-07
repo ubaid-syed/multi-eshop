@@ -306,7 +306,6 @@ router.get(
       const totalProducts = await Product.countDocuments();
 
       const products = await Product.find()
-        .populate("shop")
         .sort({ createdAt: -1 })
         .skip(skip)
         .limit(limit);
@@ -347,7 +346,6 @@ router.get(
       const products = await Product.find({
         shopId: req.params.id,
       })
-        .populate("shop")
         .sort({ createdAt: -1 })
         .skip(skip)
         .limit(limit);
@@ -416,7 +414,6 @@ router.get(
       const totalProducts = await Product.countDocuments();
 
       const products = await Product.find()
-        .populate("shop")
         .sort({ createdAt: -1 })
         .skip(skip)
         .limit(limit);
