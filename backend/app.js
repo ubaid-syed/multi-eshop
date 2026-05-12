@@ -16,10 +16,8 @@ app.set("trust proxy", 1);
 ========================= */
 app.use(
   cors({
-    origin: ["https://multi-eshop-jgwi.vercel.app"],
+    origin: ["http://localhost:3000", "https://multi-eshop-jgwi.vercel.app"],
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
 
